@@ -18,6 +18,29 @@ import Parking from "./pages/Parking";
 import FAQs from "./pages/FAQs";
 import BookAppointment from "./pages/BookAppointment";  // <-- Import here
 
+// Footer component
+function Footer() {
+  return (
+    <footer
+      style={{
+        backgroundColor: "#f8f9fa",
+        padding: "20px 0",
+        marginTop: "auto",
+        borderTop: "1px solid #e7e7e7",
+        textAlign: "center",
+        fontSize: "0.9rem",
+        color: "#555"
+      }}
+    >
+      <Container>
+        <div>Catalyst Health</div>
+        <div>123 Fake Street, Ottawa, Ontario, K1A 0B1</div>
+        <div>Phone: (613) 555-1234 | Email: info@catalysthealth.ca</div>
+      </Container>
+    </footer>
+  );
+}
+
 // Home page component
 function Home() {
   const tiles = [
@@ -90,16 +113,21 @@ function App() {
         </Navbar.Brand>
       </Navbar>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/mental-health" element={<MentalHealth />} />
-        <Route path="/providers" element={<Providers />} />
-        <Route path="/locations" element={<Locations />} />
-        <Route path="/pediatrics" element={<Pediatrics />} />
-        <Route path="/parking" element={<Parking />} />
-        <Route path="/faqs" element={<FAQs />} />
-        <Route path="/book-appointment" element={<BookAppointment />} /> {/* New route */}
-      </Routes>
+      <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+        <div style={{ flex: 1 }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/mental-health" element={<MentalHealth />} />
+            <Route path="/providers" element={<Providers />} />
+            <Route path="/locations" element={<Locations />} />
+            <Route path="/pediatrics" element={<Pediatrics />} />
+            <Route path="/parking" element={<Parking />} />
+            <Route path="/faqs" element={<FAQs />} />
+            <Route path="/book-appointment" element={<BookAppointment />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </>
   );
 }
