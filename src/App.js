@@ -18,7 +18,7 @@ import Pediatrics from "./pages/Pediatrics";
 import Parking from "./pages/Parking";
 import FAQs from "./pages/FAQs";
 import BookAppointment from "./pages/BookAppointment";  // <-- Import here
-import heroImage from './assets/herosection.jpg';
+import heroImage from './assets/herosection2.jpg';
 
 // Footer component
 function Footer() {
@@ -64,19 +64,28 @@ function Home() {
           backgroundPosition: "center",
           padding: "100px 0",
           minHeight: "450px",
-          borderBottom: "1px solid #2B2B2B"
+          borderBottom: "1px solid #2B2B2B",
         }}
       >
-        {/* Top content */}
-        <h2 className="fw-bold display-6">Your Family's Health Starts Here</h2>
+        {/* Top content with responsive display sizing */}
+        <h2 className="fw-bold d-block d-sm-none display-6">Your Family's Health Starts Here!</h2>
+        <h2 className="fw-bold d-none d-sm-block d-md-none display-6">Your Family's Health Starts Here!</h2>
+        <h2 className="fw-bold d-none d-md-block d-lg-none display-5">Your Family's Health Starts Here!</h2>
+        <h2 className="fw-bold d-none d-lg-block display-4">Your Family's Health Starts Here!</h2>
 
         {/* Middle content */}
         <div className="my-3">
           <Link to="/book-appointment">
-            <Button variant="outline-dark" className="btn-lg d-none d-lg-inline-block button-base">
+            {/* Large screens - larger button */}
+            <Button variant="outline-dark" className="d-none d-md-inline-block button-base btn-lg">
               Book Appointment
             </Button>
-            <Button variant="outline-dark" className="btn-lg d-lg-none button-base-mobile text-dark">
+            {/* Medium screens - medium button */}
+            <Button variant="outline-dark" className="d-none d-sm-inline-block d-md-none button-base">
+              Book Appointment
+            </Button>
+            {/* Small/Extra small screens */}
+            <Button variant="outline-dark" className="d-sm-none button-base-mobile btn-sm">
               Book Appointment
             </Button>
           </Link>
@@ -98,7 +107,7 @@ function Home() {
       </Container>
 
       <Container className="my-5">
-        <Row className="g-4" xs={1} md={3}>
+        <Row className="g-4 px-5 px-sm-4 px-md-3 px-lg-0" xs={1} md={3}>
           {tiles.map((tile, idx) => (
             <Col key={idx}>
               <Link to={tile.path} style={{ textDecoration: "none" }}>
@@ -127,7 +136,7 @@ function App() {
 
       <Navbar className="bg-body-primary-base text-dark" expand="lg" sticky="top" style={{ boxShadow: "0 2px 4px rgba(43, 43, 43, 0.24)" }}>
         <Container fluid className="px-3">
-          <Navbar.Brand as={Link} to="/" style={{ cursor: "pointer" }}>
+          <Navbar.Brand as={Link} to="/" className="fw-bold brand-logo" style={{ cursor: "pointer" }}>
             <i className="bi bi-heart-pulse-fill d-inline-block align-top" width="30"
               height="30"></i>{' '}
             Catalyst Health
@@ -135,7 +144,7 @@ function App() {
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
+            <Nav className="ms-auto fw-normal">
               <Nav.Link as={Link} to="/mental-health">Mental Health</Nav.Link>
               <Nav.Link as={Link} to="/providers">Providers</Nav.Link>
               <Nav.Link as={Link} to="/locations">Locations</Nav.Link>
@@ -147,8 +156,8 @@ function App() {
         </Container>
       </Navbar>
 
-      <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-        <div style={{ flex: 1 }}>
+      <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", padding: "0", overflow: "hidden" }}>
+        <div style={{ flex: 1 }} >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mental-health" element={<MentalHealth />} />

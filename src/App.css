@@ -1,41 +1,37 @@
 /* App.css */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
 
+/* -------- COLOR VARIABLES -------- */
+:root {
+  /* Primary brand colors */
+  --teal-primary: #36827F;
+  --teal-light: rgba(54, 130, 127, 0.62);
+  --teal-hover: rgba(54, 130, 127, 0.82);
+  
+  /* Neutral colors */
+  --dark: #2B2B2B;
+  --light: #f8f9fa;
+  --white: #ffffff;
+  --gray: #DDDDDD;
+  
+  /* Element-specific colors */
+  --border-color: #2B2B2B;
+  --shadow-color: rgba(43, 43, 43, 0.24);
+}
 
+/* -------- GLOBAL STYLES -------- */
 /* Apply Nunito to everything */
 body, html, #root {
   font-family: 'Nunito', sans-serif;
 }
 
+/* -------- HERO SECTION -------- */
 .hero-section {
-  background-color: #333;
+  background-color: var(--dark);
   background-size: cover;
   background-position: center;
   padding: 80px 0;
-  color: #DDDDDD;
-  /* text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); */
-}
-
-.bg-body-primary-base {
-  background-color: #f8f9fa;
-}
-
-.button-base {
-  background-color: transparent !important; /* Start with transparent background */
-  border: 1px solid #2b2b2b !important; /* Thicker border with your teal color */
-  color: #2b2b2b !important; /* Text color matches border */
-  transition: all 0.3s ease;
-}
-
-.button-base:hover {
-  background-color: rgba(54, 130, 127, 0.82) !important; /* Fill with color on hover */
-  color: #2b2b2b !important; /* Change text to white on hover for better contrast */
-}
-
-.button-base-mobile {
-  background-color: rgba(54, 130, 127, 0.82) !important; /* Always filled on mobile */
-  border: 1px solid #2b2b2b;
-  color: #2b2b2b !important;
+  color: var(--gray);
 }
 
 .hero-section h2 {
@@ -46,15 +42,83 @@ body, html, #root {
   margin-top: 20px;
 }
 
+/* -------- NAVBAR STYLES -------- */
+.bg-body-primary-base {
+  background-color: var(--light);
+}
+
+/* Navbar link hover effects */
+.navbar .nav-link {
+  position: relative;
+  margin: 0 5px;
+  padding: 8px 10px;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: var(--teal-primary) !important;
+  transform: translateY(-2px);
+}
+
+/* Add underline effect on hover */
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 2px;
+  left: 0;
+  background-color: var(--teal-primary);
+  transition: width 0.3s ease;
+}
+
+.navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Brand logo hover effect */
+.brand-logo {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.brand-logo:hover {
+  color: var(--teal-primary) !important;
+  transform: scale(1.03); /* Subtle magnification effect */
+}
+
+
+/* -------- BUTTON STYLES -------- */
+/* Desktop button with hover effect */
+.button-base {
+  background-color: transparent !important;
+  border: 1px solid var(--dark) !important;
+  color: var(--dark) !important;
+  transition: all 0.3s ease;
+}
+
+.button-base:hover {
+  background-color: var(--teal-hover) !important;
+  color: var(--dark) !important;
+}
+
+/* Mobile button - always filled */
+.button-base-mobile {
+  background-color: var(--teal-hover) !important;
+  border: 1px solid var(--dark);
+  color: var(--dark) !important;
+}
+
+/* -------- CONTENT SECTION STYLES -------- */
 .welcome-section {
   padding: 50px 0;
   text-align: center;
 }
 
-
+/* -------- TILE COMPONENTS -------- */
 .info-tile {
   padding: 40px 20px;
-  color: white;
+  color: var(--white);
   text-align: center;
   border-radius: 8px;
   transition: transform 0.2s;
@@ -62,6 +126,7 @@ body, html, #root {
 
 .info-tile:hover {
   transform: scale(1.03);
+  filter: brightness(1.1); /* Makes the background slightly brighter */
 }
 
 .info-tile .icon {
@@ -73,4 +138,10 @@ body, html, #root {
 .tile-text {
   font-size: 1.2rem;
   font-weight: 500;
+}
+
+.info-tile:hover .icon,
+.info-tile:hover .tile-text {
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2); 
+  transform: translateY(-2px); /* Subtle upward movement */
 }
