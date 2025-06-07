@@ -28,7 +28,7 @@ function Footer() {
         backgroundColor: "#f8f9fa",
         padding: "20px 0",
         marginTop: "auto",
-        borderTop: "1px solid #e7e7e7",
+        borderTop: "1px solid #2B2B2B",
         textAlign: "center",
         fontSize: "0.9rem",
         color: "#555"
@@ -57,13 +57,14 @@ function Home() {
   return (
     <>
       <div
-        className="hero-section text-center text-dark d-flex flex-column justify-content-between"
+        className="hero-section text-center text-dark d-flex flex-column justify-content-between align-items-center"
         style={{
           backgroundImage: `url(${heroImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           padding: "100px 0",
-          minHeight: "450px"
+          minHeight: "450px",
+          borderBottom: "1px solid #2B2B2B"
         }}
       >
         {/* Top content */}
@@ -72,7 +73,10 @@ function Home() {
         {/* Middle content */}
         <div className="my-3">
           <Link to="/book-appointment">
-            <Button variant="outline-dark">
+            <Button variant="outline-dark" className="btn-lg d-none d-lg-inline-block button-base">
+              Book Appointment
+            </Button>
+            <Button variant="outline-dark" className="btn-lg d-lg-none button-base-mobile text-dark">
               Book Appointment
             </Button>
           </Link>
@@ -80,7 +84,7 @@ function Home() {
 
         {/* Bottom content */}
         <div className="mt-auto d-none d-lg-block">
-          <p className="text-muted mb-0">
+          <p className="text-dark fw-bold mb-0">
             Specialist & Family Care | Virtual & In-Clinic Visits
           </p>
         </div>
@@ -121,7 +125,7 @@ function App() {
   return (
     <>
 
-      <Navbar className="bg-body-primary-base text-dark" expand="lg" sticky="top">
+      <Navbar className="bg-body-primary-base text-dark" expand="lg" sticky="top" style={{ boxShadow: "0 2px 4px rgba(43, 43, 43, 0.24)" }}>
         <Container fluid className="px-3">
           <Navbar.Brand as={Link} to="/" style={{ cursor: "pointer" }}>
             <i className="bi bi-heart-pulse-fill d-inline-block align-top" width="30"

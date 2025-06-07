@@ -7,7 +7,6 @@ body, html, #root {
   font-family: 'Nunito', sans-serif;
 }
 
-
 .hero-section {
   background-color: #333;
   background-size: cover;
@@ -21,7 +20,23 @@ body, html, #root {
   background-color: #f8f9fa;
 }
 
+.button-base {
+  background-color: transparent !important; /* Start with transparent background */
+  border: 1px solid #2b2b2b !important; /* Thicker border with your teal color */
+  color: #2b2b2b !important; /* Text color matches border */
+  transition: all 0.3s ease;
+}
 
+.button-base:hover {
+  background-color: rgba(54, 130, 127, 0.82) !important; /* Fill with color on hover */
+  color: #2b2b2b !important; /* Change text to white on hover for better contrast */
+}
+
+.button-base-mobile {
+  background-color: rgba(54, 130, 127, 0.82) !important; /* Always filled on mobile */
+  border: 1px solid #2b2b2b;
+  color: #2b2b2b !important;
+}
 
 .hero-section h2 {
   font-weight: bold;
