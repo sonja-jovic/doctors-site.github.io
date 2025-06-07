@@ -73,6 +73,11 @@ function Home() {
         <h2 className="fw-bold d-none d-md-block d-lg-none display-5">Your Family's Health Starts Here!</h2>
         <h2 className="fw-bold d-none d-lg-block display-4">Your Family's Health Starts Here!</h2>
 
+        {/* Center icon - only visible on small screens */}
+        <div className="d-block d-sm-none my-4 display-1">
+          <i className="bi bi-heart-pulse-fill text-dark" ></i>
+        </div>
+
         {/* Middle content */}
         <div className="my-3">
           <Link to="/book-appointment">
@@ -134,7 +139,7 @@ function App() {
   return (
     <>
 
-      <Navbar className="bg-body-primary-base text-dark" expand="lg" sticky="top" style={{ boxShadow: "0 2px 4px rgba(43, 43, 43, 0.24)" }}>
+      <Navbar className="bg-body-primary-base text-dark" expand="md" sticky="top" style={{ boxShadow: "0 2px 4px rgba(43, 43, 43, 0.24)" }}>
         <Container fluid className="px-3">
           <Navbar.Brand as={Link} to="/" className="fw-bold brand-logo" style={{ cursor: "pointer" }}>
             <i className="bi bi-heart-pulse-fill d-inline-block align-top" width="30"
