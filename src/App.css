@@ -1,13 +1,27 @@
 /* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+
+
+/* Apply Nunito to everything */
+body, html, #root {
+  font-family: 'Nunito', sans-serif;
+}
+
 
 .hero-section {
   background-color: #333;
   background-size: cover;
   background-position: center;
   padding: 80px 0;
-  color: white;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  color: #DDDDDD;
+  /* text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); */
 }
+
+.bg-body-primary-base {
+  background-color: #f8f9fa;
+}
+
+
 
 .hero-section h2 {
   font-weight: bold;
