@@ -17,6 +17,7 @@ import Pediatrics from "./pages/Pediatrics";
 import Parking from "./pages/Parking";
 import FAQs from "./pages/FAQs";
 import BookAppointment from "./pages/BookAppointment";  // <-- Import here
+import heroImage from './assets/herosection.jpg';
 
 // Footer component
 function Footer() {
@@ -55,9 +56,9 @@ function Home() {
   return (
     <>
       <div
-        className="hero-section text-center text-white"
+        className="hero-section text-center text-dark"
         style={{
-          backgroundImage: `url("https://via.placeholder.com/1200x400")`,
+          backgroundImage: `url(${heroImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           padding: "80px 0"
@@ -65,11 +66,11 @@ function Home() {
       >
         <h2 className="fw-bold">Your Family’s Health Starts Here</h2>
         <Link to="/book-appointment">
-          <Button variant="outline-light" className="my-3">
+          <Button variant="outline-dark" className="my-3">
             Book Appointment
           </Button>
         </Link>
-        <p className="text-light small">
+        <p className=" small">
           Specialist & Family Care | Virtual & In-Clinic Visits
         </p>
       </div>
@@ -108,7 +109,7 @@ function App() {
     <>
       <Navbar bg="light" expand="lg" className="px-4">
         <Navbar.Brand as={Link} to="/" style={{ cursor: "pointer" }}>
-          <i className="bi bi-heart-fill text-danger me-2"></i>
+          <i className="bi bi-heart-pulse text-dark me-2"></i>
           Catalyst Health
         </Navbar.Brand>
       </Navbar>
