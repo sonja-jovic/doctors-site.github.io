@@ -36,6 +36,7 @@ function Footer() {
         <div>Catalyst Health</div>
         <div>123 Fake Street, Ottawa, Ontario, K1A 0B1</div>
         <div>Phone: (613) 555-1234 | Email: info@catalysthealth.ca</div>
+        <div>Website designed by Sonja J and Zeke S</div>
       </Container>
     </footer>
   );
