@@ -91,7 +91,7 @@ body, html, #root {
 
 
 /* -------- BUTTON STYLES -------- */
-/* Desktop button with hover effect */
+/* Desktop button with hover effect - FIXED VERSION */
 .button-base {
   background-color: var(--teal-light) !important; /* Semi-transparent teal background */
   border: 2px solid var(--dark) !important; /* More prominent border */
@@ -99,19 +99,35 @@ body, html, #root {
   font-weight: 600; /* Slightly bolder text */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
   transition: all 0.3s ease;
+  position: relative; /* Important for hover stability */
+  z-index: 1;
 }
 
+/* Add hover buffer area to prevent flickering */
+.button-base::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  z-index: -1;
+}
+
+/* Keep hover on parent element */
 .button-base:hover {
   background-color: var(--teal-hover) !important;
   color: var(--dark) !important;
   transform: translateY(-2px); /* Same hover effect as nav links */
   box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Enhanced shadow on hover */
 }
+
 /* Mobile button - always filled */
 .button-base-mobile {
   background-color: var(--teal-hover) !important;
   border: 1px solid var(--dark);
   color: var(--dark) !important;
+  position: relative; /* For consistency */
 }
 
 /* -------- CONTENT SECTION STYLES -------- */
@@ -165,4 +181,18 @@ body, html, #root {
 .info-tile:hover .tile-text {
   text-shadow: 0 1px 3px rgba(0,0,0,0.2); 
   transform: translateY(-2px); /* Subtle upward movement */
+}
+
+/* -------- MENTAL HEALTH PAGE STYLES -------- */
+.mental-health-btn {
+  background-color: transparent !important;
+  border: 2px solid var(--dark) !important;
+  color: var(--dark) !important;
+  transition: all 0.3s ease !important;
+}
+
+.mental-health-btn:hover {
+  background-color: var(--teal-primary) !important;
+  color: white !important;
+  border-color: var(--teal-primary) !important;
 }
