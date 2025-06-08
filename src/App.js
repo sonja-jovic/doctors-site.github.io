@@ -63,19 +63,16 @@ function Home() {
           padding: "80px 0"
         }}
       >
-        <h2 className="fw-bold">Your Family’s Health Starts Here</h2>
+        <h2 className="fw-bold">Catalyst Health </h2>
         <Link to="/book-appointment">
-          <Button variant="outline-light" className="my-3">
+          <Button className="book-btn my-3">
             Book Appointment
           </Button>
         </Link>
-        <p className="text-light small">
-          Specialist & Family Care | Virtual & In-Clinic Visits
-        </p>
       </div>
 
       <Container className="text-center my-5">
-        <h5 className="fw-bold">Welcome to Catalyst Health</h5>
+        <h5 className="info">Your Family’s Health Starts Here</h5>
         <p className="text-muted small">
           Catalyst Medical provides compassionate, accessible healthcare tailored to your needs.
         </p>

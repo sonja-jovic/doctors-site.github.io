@@ -11,6 +11,8 @@
 
 .hero-section h2 {
   font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5rem;
 }
 
 .hero-section .btn {
@@ -44,4 +46,20 @@
 .tile-text {
   font-size: 1.2rem;
   font-weight: 500;
+}
+
+.info {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.book-btn {
+  background-color: #ffffff !important;
+  color: #333 !important;
+  border: none !important;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  font-weight: bold;
 }
