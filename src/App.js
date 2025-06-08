@@ -38,7 +38,7 @@ function Footer() {
         <div>Catalyst Health</div>
         <div>123 Fake Street, Ottawa, Ontario, K1A 0B1</div>
         <div>Phone: (613) 555-1234 | Email: info@catalysthealth.ca</div>
-        <div>Website designed by Sonja J and Zeke S</div>
+        <div>Website designed by Sonja J and Hezekiah S</div>
       </Container>
     </footer>
   );
@@ -84,6 +84,7 @@ function Home() {
           <Link to="/book-appointment">
             {/* Large screens - larger button */}
             <Button variant="outline-dark" className="d-none d-md-inline-block button-base btn-lg">
+              <i className="bi bi-calendar-check me-2"></i>
               Book Appointment
             </Button>
             {/* Medium screens - medium button */}
