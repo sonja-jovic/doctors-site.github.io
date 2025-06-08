@@ -4,10 +4,11 @@ import {
   Container,
   Button,
   Row,
-  Col
+  Col,
+  Nav
 } from "react-bootstrap";
 
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 
 import "./App.css";
 import MentalHealth from "./pages/MentalHealth";
@@ -17,6 +18,7 @@ import Pediatrics from "./pages/Pediatrics";
 import Parking from "./pages/Parking";
 import FAQs from "./pages/FAQs";
 import BookAppointment from "./pages/BookAppointment";  // <-- Import here
+import heroImage from './assets/herosection2.jpg';
 
 // Footer component
 function Footer() {
@@ -26,7 +28,7 @@ function Footer() {
         backgroundColor: "#f8f9fa",
         padding: "20px 0",
         marginTop: "auto",
-        borderTop: "1px solid #e7e7e7",
+        borderTop: "1px solid #2B2B2B",
         textAlign: "center",
         fontSize: "0.9rem",
         color: "#555"
@@ -56,31 +58,62 @@ function Home() {
   return (
     <>
       <div
-        className="hero-section text-center text-white"
+        className="hero-section text-center text-dark d-flex flex-column justify-content-between align-items-center"
         style={{
-          backgroundImage: `url("https://via.placeholder.com/1200x400")`,
+          backgroundImage: `url(${heroImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          padding: "80px 0"
+          padding: "100px 0",
+          minHeight: "450px",
+          borderBottom: "1px solid #2B2B2B",
         }}
       >
-        <h2 className="fw-bold">Catalyst Health </h2>
-        <Link to="/book-appointment">
-          <Button className="book-btn my-3">
-            Book Appointment
-          </Button>
-        </Link>
+        {/* Top content with responsive display sizing */}
+        <h2 className="fw-bold d-block d-sm-none display-6">Your Family's Health Starts Here!</h2>
+        <h2 className="fw-bold d-none d-sm-block d-md-none display-6">Your Family's Health Starts Here!</h2>
+        <h2 className="fw-bold d-none d-md-block d-lg-none display-5">Your Family's Health Starts Here!</h2>
+        <h2 className="fw-bold d-none d-lg-block display-4">Your Family's Health Starts Here!</h2>
+
+        {/* Center icon - only visible on small screens */}
+        <div className="d-block d-sm-none my-4 display-1">
+          <i className="bi bi-heart-pulse-fill text-dark" ></i>
+        </div>
+
+        {/* Middle content */}
+        <div className="my-3">
+          <Link to="/book-appointment">
+            {/* Large screens - larger button */}
+            <Button variant="outline-dark" className="d-none d-md-inline-block button-base btn-lg">
+              Book Appointment
+            </Button>
+            {/* Medium screens - medium button */}
+            <Button variant="outline-dark" className="d-none d-sm-inline-block d-md-none button-base">
+              Book Appointment
+            </Button>
+            {/* Small/Extra small screens */}
+            <Button variant="outline-dark" className="d-sm-none button-base-mobile btn-sm">
+              Book Appointment
+            </Button>
+          </Link>
+        </div>
+
+        {/* Bottom content */}
+        <div className="mt-auto d-none d-lg-block">
+          <p className="text-dark fw-bold mb-0">
+            Specialist & Family Care | Virtual & In-Clinic Visits
+          </p>
+        </div>
       </div>
 
       <Container className="text-center my-5">
-        <h5 className="info">Your Family’s Health Starts Here</h5>
-        <p className="text-muted small">
+        <h5 className="fw-bold fs-3">Welcome to Catalyst Health</h5>
+        <p className="text-muted fs-5">
           Catalyst Medical provides compassionate, accessible healthcare tailored to your needs.
         </p>
       </Container>
 
       <Container className="my-5">
-        <Row className="g-4" xs={1} md={3}>
+        <Row className="g-4 px-5 px-sm-4 px-md-3 px-lg-0" xs={1} md={3}>
           {tiles.map((tile, idx) => (
             <Col key={idx}>
               <Link to={tile.path} style={{ textDecoration: "none" }}>
@@ -102,17 +135,35 @@ function Home() {
 
 // Main App
 function App() {
+  document.title = "Catalyst Health";
+
   return (
     <>
-      <Navbar bg="light" expand="lg" className="px-4">
-        <Navbar.Brand as={Link} to="/" style={{ cursor: "pointer" }}>
-          <i className="bi bi-heart-fill text-danger me-2"></i>
-          Catalyst Health
-        </Navbar.Brand>
+
+      <Navbar className="bg-body-primary-base text-dark" expand="md" sticky="top" style={{ boxShadow: "0 2px 4px rgba(43, 43, 43, 0.24)" }}>
+        <Container fluid className="px-3">
+          <Navbar.Brand as={Link} to="/" className="fw-bold brand-logo" style={{ cursor: "pointer" }}>
+            <i className="bi bi-heart-pulse-fill d-inline-block align-top" width="30"
+              height="30"></i>{' '}
+            Catalyst Health
+          </Navbar.Brand>
+
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto fw-normal">
+              <Nav.Link as={Link} to="/mental-health">Mental Health</Nav.Link>
+              <Nav.Link as={Link} to="/providers">Providers</Nav.Link>
+              <Nav.Link as={Link} to="/locations">Locations</Nav.Link>
+              <Nav.Link as={Link} to="/pediatrics">Pediatrics</Nav.Link>
+              <Nav.Link as={Link} to="/parking">Parking</Nav.Link>
+              <Nav.Link as={Link} to="/faqs">FAQs</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
       </Navbar>
 
-      <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-        <div style={{ flex: 1 }}>
+      <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", padding: "0", overflow: "hidden" }}>
+        <div style={{ flex: 1 }} >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mental-health" element={<MentalHealth />} />
