@@ -100,6 +100,9 @@ function Home() {
 
         {/* Bottom content */}
         <div className="mt-auto d-none d-lg-block">
+          <p className="text-dark fw-bold mb-0">
+            Specialist & Family Care | Virtual & In-Clinic Visits
+          </p>
         </div>
       </div>
 
