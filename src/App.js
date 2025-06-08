@@ -19,6 +19,7 @@ import Parking from "./pages/Parking";
 import FAQs from "./pages/FAQs";
 import BookAppointment from "./pages/BookAppointment";  // <-- Import here
 import heroImage from './assets/herosection2.jpg';
+import logoImage from './assets/cardiogram.png'; 
 
 // Footer component
 function Footer() {
@@ -35,7 +36,16 @@ function Footer() {
       }}
     >
       <Container>
-        <div>Catalyst Health</div>
+        {/* you could remove the image if you want */}
+        <div className="mb-3">
+          <img 
+            src={logoImage} 
+            height="25" 
+            alt="Catalyst Health Logo" 
+            className="mb-2"
+          />
+          <div>Catalyst Health</div>
+        </div>
         <div>123 Fake Street, Ottawa, Ontario, K1A 0B1</div>
         <div>Phone: (613) 555-1234 | Email: info@catalysthealth.ca</div>
         <div>Website designed by Sonja J and Hezekiah S</div>
