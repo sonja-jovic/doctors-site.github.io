@@ -116,6 +116,7 @@ export default function MentalHealth() {
     <Container className="my-5" style={{ textAlign: "left" }}>
       <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
         <h2 className="info" style={{ fontSize: "3.5rem", marginBottom: "0.5rem" }}>
+          <i className="fas fa-brain me-3" style={{ color: locationsColor }}></i>
           Mental Health
         </h2>
         <Button
