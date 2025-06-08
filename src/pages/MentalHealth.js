@@ -1,38 +1,15 @@
-// import React from "react";
-// import { Container, Button } from "react-bootstrap";
-// import { useNavigate } from 'react-router-dom';
-
-// export default function MentalHealth() {
-//   const navigate = useNavigate();
-  
-//   const handleBookMentalHealthAppointment = () => {
-//     navigate('/book-appointment', { 
-//       state: { 
-//         appointmentType: 'mental-health',
-//         appointmentLocation: 'virtual',
-//         appointmentConcern: 'anxiety'
-//       } 
-//     });
-//   };
-
-//   return (
-//     <Container>
-//       {/* Your page content here */}
-//       <Button 
-//         variant="outline-dark"
-//         className="button-base"
-//         onClick={handleBookMentalHealthAppointment}
-//       >
-//         Book Mental Health Appointment
-//       </Button>
-//     </Container>
-//   );
-// }
 import React, { useState } from "react";
-import { Container, Accordion, Card, useAccordionButton } from "react-bootstrap";
+import { Container, Accordion, Card, useAccordionButton, Button } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
 
-const locationsColor = "#89a4a6";
+const locationsColor = "var(--teal-light)";
 const expandedContentBgColor = "#e5ebec";
+
+// const locationsColor = "var(--teal-primary)"; // Darker, more saturated teal 
+// const expandedContentBgColor = "#f9f9f9"; 
+
+// const locationsColor = "rgba(54, 130, 127, 0.3)"; // Very light teal 
+// const expandedContentBgColor = "#ffffff";
 
 function CustomToggle({ eventKey, callback, isActive }) {
   const decoratedOnClick = useAccordionButton(eventKey, () => {
@@ -57,6 +34,7 @@ function CustomToggle({ eventKey, callback, isActive }) {
 }
 
 export default function MentalHealth() {
+  const navigate = useNavigate();
   // activeKey is now an array of keys that are open
   const [activeKeys, setActiveKeys] = useState([]);
 
@@ -68,6 +46,16 @@ export default function MentalHealth() {
       // add key to open accordion
       setActiveKeys([...activeKeys, key]);
     }
+  };
+
+  const handleBookMentalHealthAppointment = () => {
+    navigate('/book-appointment', {
+      state: {
+        appointmentType: 'mental-health',
+        appointmentLocation: 'virtual',
+        appointmentConcern: 'anxiety'
+      }
+    });
   };
 
   const accordions = [
@@ -85,9 +73,9 @@ export default function MentalHealth() {
       key: "2",
       title: "FAQs",
       content: (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `
       Q: How do I book an appointment?<br />
       A: You can book online through our website or call our clinic directly.<br /><br />
 
@@ -118,17 +106,27 @@ export default function MentalHealth() {
       Q: What if I need urgent help outside clinic hours?<br />
       A: For emergencies, please call 911 or visit the nearest emergency room.
                 `,
-              }}
-            />
-          ),
-        },
-      ];
+          }}
+        />
+      ),
+    },
+  ];
 
   return (
     <Container className="my-5" style={{ textAlign: "left" }}>
-      <h2 className="info" style={{ fontSize: "3.5rem" }}>
-        Mental Health
-      </h2>
+      <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
+        <h2 className="info" style={{ fontSize: "3.5rem", marginBottom: "0.5rem" }}>
+          Mental Health
+        </h2>
+        <Button
+          variant="outline-dark"
+          className="mental-health-btn"
+          onClick={handleBookMentalHealthAppointment}
+        >
+          Book Mental Health Appointment
+        </Button>
+      </div>
+
       <p className="text-muted small" style={{ width: "100%" }}>
         Our clinic offers mental health services. Please refer below for more information. The services we offer are bilingual and can address a range of issues such as behavioural issues in children, anxiety, depression, and more.
       </p>
@@ -141,7 +139,7 @@ export default function MentalHealth() {
           return (
             <Card
               key={key}
-              style={{ backgroundColor: locationsColor, marginBottom: "1rem" }}
+              style={{ backgroundColor: locationsColor, marginBottom: "1.5rem" }}
             >
               <Card.Header
                 onClick={() => handleToggle(key)}
@@ -179,6 +177,17 @@ export default function MentalHealth() {
           );
         })}
       </Accordion>
+
+      {/* Add a second button at the bottom for better UX */}
+      <div className="text-center mt-5">
+        <Button
+          variant="outline-dark"
+          className="button-base"
+          onClick={handleBookMentalHealthAppointment}
+        >
+          Book Mental Health Appointment
+        </Button>
+      </div>
     </Container>
   );
 }
