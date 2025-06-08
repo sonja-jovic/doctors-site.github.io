@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Navbar,
   Container,
@@ -46,6 +46,19 @@ function Footer() {
 
 // Home page component
 function Home() {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const placeholderColor = "#f0f0f0"; // Light placeholder color matching your design
+  
+  useEffect(() => {
+    const img = new Image();
+    img.src = heroImage;
+    img.onload = () => setImageLoaded(true);
+    
+    if (img.complete) {
+      setImageLoaded(true);
+    }
+  }, []);
+
   const tiles = [
     { title: "Mental Health", iconClass: "fas fa-brain", color: "#5d9cec", path: "/mental-health" },
     { title: "Providers", iconClass: "bi bi-person-badge", color: "#6c8ea6", path: "/providers" },
@@ -60,12 +73,14 @@ function Home() {
       <div
         className="hero-section text-center text-dark d-flex flex-column justify-content-between align-items-center"
         style={{
-          backgroundImage: `url(${heroImage})`,
+          backgroundColor: placeholderColor, // Always show a background color
+          backgroundImage: imageLoaded ? `url(${heroImage})` : 'none', // Only show image when loaded
           backgroundSize: "cover",
           backgroundPosition: "center",
           padding: "100px 0",
           minHeight: "450px",
           borderBottom: "1px solid #2B2B2B",
+          transition: "background-image 0.3s ease-in", // Smooth transition
         }}
       >
         {/* Top content with responsive display sizing */}
