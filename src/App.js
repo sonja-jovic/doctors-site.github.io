@@ -69,10 +69,10 @@ function Home() {
         }}
       >
         {/* Top content with responsive display sizing */}
-        <h2 className="fw-bold d-block d-sm-none display-6">Your Family's Health Starts Here!</h2>
-        <h2 className="fw-bold d-none d-sm-block d-md-none display-6">Your Family's Health Starts Here!</h2>
-        <h2 className="fw-bold d-none d-md-block d-lg-none display-5">Your Family's Health Starts Here!</h2>
-        <h2 className="fw-bold d-none d-lg-block display-4">Your Family's Health Starts Here!</h2>
+        <h2 className="fw-bold d-block d-sm-none display-6">Welcome to Catalyst Health</h2>
+        <h2 className="fw-bold d-none d-sm-block d-md-none display-6">Welcome to Catalyst Health</h2>
+        <h2 className="fw-bold d-none d-md-block d-lg-none display-5">Welcome to Catalyst Health</h2>
+        <h2 className="fw-bold d-none d-lg-block display-4">Welcome to Catalyst Health</h2>
 
         {/* Center icon - only visible on small screens */}
         <div className="d-block d-sm-none my-4 display-1">
@@ -100,14 +100,11 @@ function Home() {
 
         {/* Bottom content */}
         <div className="mt-auto d-none d-lg-block">
-          <p className="text-dark fw-bold mb-0">
-            Specialist & Family Care | Virtual & In-Clinic Visits
-          </p>
         </div>
       </div>
 
       <Container className="text-center my-5">
-        <h5 className="fw-bold fs-3">Welcome to Catalyst Health</h5>
+        <h5 className="fw-bold fs-3">Your Family's Health Starts Here!</h5>
         <p className="text-muted fs-5">
           Catalyst Medical provides compassionate, accessible healthcare tailored to your needs.
         </p>
