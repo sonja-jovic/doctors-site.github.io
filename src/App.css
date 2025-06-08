@@ -36,6 +36,8 @@ body, html, #root {
 
 .hero-section h2 {
   font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5rem;
 }
 
 .hero-section .btn {
@@ -91,17 +93,20 @@ body, html, #root {
 /* -------- BUTTON STYLES -------- */
 /* Desktop button with hover effect */
 .button-base {
-  background-color: transparent !important;
-  border: 1px solid var(--dark) !important;
+  background-color: var(--teal-light) !important; /* Semi-transparent teal background */
+  border: 2px solid var(--dark) !important; /* More prominent border */
   color: var(--dark) !important;
+  font-weight: 600; /* Slightly bolder text */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
   transition: all 0.3s ease;
 }
 
 .button-base:hover {
   background-color: var(--teal-hover) !important;
   color: var(--dark) !important;
+  transform: translateY(-2px); /* Same hover effect as nav links */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Enhanced shadow on hover */
 }
-
 /* Mobile button - always filled */
 .button-base-mobile {
   background-color: var(--teal-hover) !important;
@@ -138,6 +143,22 @@ body, html, #root {
 .tile-text {
   font-size: 1.2rem;
   font-weight: 500;
+}
+
+.info {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.book-btn {
+  background-color: #ffffff !important;
+  color: #333 !important;
+  border: none !important;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
 .info-tile:hover .icon,

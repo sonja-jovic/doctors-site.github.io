@@ -38,6 +38,7 @@ function Footer() {
         <div>Catalyst Health</div>
         <div>123 Fake Street, Ottawa, Ontario, K1A 0B1</div>
         <div>Phone: (613) 555-1234 | Email: info@catalysthealth.ca</div>
+        <div>Website designed by Sonja J and Hezekiah S</div>
       </Container>
     </footer>
   );
@@ -68,16 +69,22 @@ function Home() {
         }}
       >
         {/* Top content with responsive display sizing */}
-        <h2 className="fw-bold d-block d-sm-none display-6">Your Family's Health Starts Here!</h2>
-        <h2 className="fw-bold d-none d-sm-block d-md-none display-6">Your Family's Health Starts Here!</h2>
-        <h2 className="fw-bold d-none d-md-block d-lg-none display-5">Your Family's Health Starts Here!</h2>
-        <h2 className="fw-bold d-none d-lg-block display-4">Your Family's Health Starts Here!</h2>
+        <h2 className="fw-bold d-block d-sm-none display-6">Welcome to Catalyst Health</h2>
+        <h2 className="fw-bold d-none d-sm-block d-md-none display-6">Welcome to Catalyst Health</h2>
+        <h2 className="fw-bold d-none d-md-block d-lg-none display-5">Welcome to Catalyst Health</h2>
+        <h2 className="fw-bold d-none d-lg-block display-4">Welcome to Catalyst Health</h2>
+
+        {/* Center icon - only visible on small screens */}
+        <div className="d-block d-sm-none my-4 display-1">
+          <i className="bi bi-heart-pulse-fill text-dark" ></i>
+        </div>
 
         {/* Middle content */}
         <div className="my-3">
           <Link to="/book-appointment">
             {/* Large screens - larger button */}
             <Button variant="outline-dark" className="d-none d-md-inline-block button-base btn-lg">
+              <i className="bi bi-calendar-check me-2"></i>
               Book Appointment
             </Button>
             {/* Medium screens - medium button */}
@@ -100,7 +107,7 @@ function Home() {
       </div>
 
       <Container className="text-center my-5">
-        <h5 className="fw-bold fs-3">Welcome to Catalyst Health</h5>
+        <h5 className="fw-bold fs-3">Your Family's Health Starts Here!</h5>
         <p className="text-muted fs-5">
           Catalyst Medical provides compassionate, accessible healthcare tailored to your needs.
         </p>
@@ -134,7 +141,7 @@ function App() {
   return (
     <>
 
-      <Navbar className="bg-body-primary-base text-dark" expand="lg" sticky="top" style={{ boxShadow: "0 2px 4px rgba(43, 43, 43, 0.24)" }}>
+      <Navbar className="bg-body-primary-base text-dark" expand="md" sticky="top" style={{ boxShadow: "0 2px 4px rgba(43, 43, 43, 0.24)" }}>
         <Container fluid className="px-3">
           <Navbar.Brand as={Link} to="/" className="fw-bold brand-logo" style={{ cursor: "pointer" }}>
             <i className="bi bi-heart-pulse-fill d-inline-block align-top" width="30"
