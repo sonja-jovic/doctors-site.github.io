@@ -91,13 +91,13 @@ body, html, #root {
 
 
 /* -------- BUTTON STYLES -------- */
-/* Desktop button with hover effect - FIXED VERSION */
+/* Desktop button with hover effect */
 .button-base {
-  background-color: var(--teal-light) !important; /* Semi-transparent teal background */
-  border: 2px solid var(--dark) !important; /* More prominent border */
+  background-color: var(--teal-light) !important;
+  border: 2px solid var(--dark) !important;
   color: var(--dark) !important;
-  font-weight: 600; /* Slightly bolder text */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
   position: relative; /* Important for hover stability */
   z-index: 1;
