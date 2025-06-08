@@ -1,11 +1,30 @@
-import React from "react";
-import { Container } from "react-bootstrap";
+// import React from "react";
+// import { Container, Button } from "react-bootstrap";
+// import { useNavigate } from 'react-router-dom';
 
-export default function MentalHealth() {
-  return (
-    <Container className="text-center my-5">
-      <h2>Mental Health</h2>
-      <p className="text-muted">Coming Soon</p>
-    </Container>
-  );
-}
+// export default function MentalHealth() {
+//   const navigate = useNavigate();
+  
+//   const handleBookMentalHealthAppointment = () => {
+//     navigate('/book-appointment', { 
+//       state: { 
+//         appointmentType: 'mental-health',
+//         appointmentLocation: 'virtual',
+//         appointmentConcern: 'anxiety'
+//       } 
+//     });
+//   };
+
+//   return (
+//     <Container>
+//       {/* Your page content here */}
+//       <Button 
+//         variant="outline-dark"
+//         className="button-base"
+//         onClick={handleBookMentalHealthAppointment}
+//       >
+//         Book Mental Health Appointment
+//       </Button>
+//     </Container>
+//   );
+// }

@@ -1,0 +1,116 @@
+/* BookAppointment styles */
+
+.appointment-page {
+  background-color: var(--light);
+  min-height: calc(100vh - 150px); /* Adjust based on your navbar and footer */
+  padding: 20px 0;
+}
+
+/* Form controls with consistent styling */
+.form-control-lg, .form-select {
+  padding: 12px;
+  border: 1px solid var(--gray);
+  border-radius: 10px;
+  font-family: 'Nunito', sans-serif;
+  margin-bottom: 5px;
+}
+
+/* Form labels */
+.form-label {
+  font-weight: 500;
+  color: var(--dark);
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+/* Book Now button styling - fixed version */
+.book-now-btn {
+  background-color: var(--teal-primary) !important;
+  border-color: var(--teal-primary) !important;
+  color: white !important;
+  font-weight: 600;
+  padding: 12px;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Split transitions */
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 1;
+  /* Add permanent subtle shadow */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Add a transparent buffer around the button to catch hover events */
+.book-now-btn::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  z-index: -1;
+  pointer-events: auto; /* This is key - makes the area interactive */
+}
+
+.book-now-btn:hover {
+  background-color: var(--teal-hover) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Notification text styling */
+.appointment-notes p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+.text-warning {
+  color: #e67e22;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .appointment-page {
+    padding: 10px 0;
+  }
+  
+  .form-control-lg, .form-select {
+    padding: 10px;
+  }
+}
+
+/* Date picker styles */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  padding: 5px;
+  background-color: transparent;
+}
+
+
+/* Select element customization */
+.form-select {
+  cursor: pointer;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  transition: border-color 0.3s ease;
+}
+
+.form-select:hover {
+  border-color: var(--teal-primary);
+}
+
+.form-select:focus,
+.form-control:focus,
+input[type="date"]:focus {
+  border-color: var(--teal-primary) !important;
+  box-shadow: 0 0 0 0.25rem rgba(80, 186, 176, 0.25) !important; /* Light teal shadow */
+  outline: 0 !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  outline: none !important;
+  outline-offset: 0 !important;
+}
