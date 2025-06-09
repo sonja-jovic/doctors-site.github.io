@@ -73,7 +73,7 @@ function Home() {
     { title: "Mental Health", iconClass: "fas fa-brain", color: "#5d9cec", path: "/mental-health" },
     { title: "Providers", iconClass: "bi bi-person-badge", color: "#6c8ea6", path: "/providers" },
     { title: "Locations", iconClass: "bi bi-geo-alt", color: "#89a4a6", path: "/locations" },
-    { title: "Pediatrics", iconClass: "bi bi-calendar-check", color: "#5c7fa3", path: "/pediatrics" },
+    { title: "Pediatrics", iconClass: "bi bi-person-standing-dress", color: "#5c7fa3", path: "/pediatrics" },
     { title: "Parking", iconClass: "fas fa-parking", color: "#7ca0a2", path: "/parking" },
     { title: "FAQs", iconClass: "bi bi-question-circle", color: "#68afc0", path: "/faqs" }
   ];
@@ -159,6 +159,16 @@ function Home() {
   );
 }
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 // Main App
 function App() {
   document.title = "Catalyst Health";
@@ -190,6 +200,7 @@ function App() {
 
       <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", padding: "0", overflow: "hidden" }}>
         <div style={{ flex: 1 }} >
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mental-health" element={<MentalHealth />} />
