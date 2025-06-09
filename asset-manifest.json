@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/doctors-site.github.io/static/css/main.ecbf4215.css",
+    "main.js": "/doctors-site.github.io/static/js/main.1abd7b34.js",
+    "static/js/453.5c5cb572.chunk.js": "/doctors-site.github.io/static/js/453.5c5cb572.chunk.js",
+    "static/media/herosection2.jpg": "/doctors-site.github.io/static/media/herosection2.75843008689daced1d2b.jpg",
+    "static/media/fa-solid-900.ttf": "/doctors-site.github.io/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
+    "static/media/fa-brands-400.ttf": "/doctors-site.github.io/static/media/fa-brands-400.1815e00441357e01619e.ttf",
+    "static/media/bootstrap-icons.woff?": "/doctors-site.github.io/static/media/bootstrap-icons.1295669cd4e305c97f2c.woff",
+    "static/media/fa-solid-900.woff2": "/doctors-site.github.io/static/media/fa-solid-900.2463b90d9a316e4e5294.woff2",
+    "static/media/bootstrap-icons.woff2?": "/doctors-site.github.io/static/media/bootstrap-icons.92ea18a81d737146ff04.woff2",
+    "static/media/fa-brands-400.woff2": "/doctors-site.github.io/static/media/fa-brands-400.c210719e60948b211a12.woff2",
+    "static/media/fa-regular-400.ttf": "/doctors-site.github.io/static/media/fa-regular-400.914997e1bdfc990d0897.ttf",
+    "static/media/fa-regular-400.woff2": "/doctors-site.github.io/static/media/fa-regular-400.89999bdf5d835c012025.woff2",
+    "static/media/cardiogram.png": "/doctors-site.github.io/static/media/cardiogram.cf4597a2d56fdf940021.png",
+    "static/media/fa-v4compatibility.ttf": "/doctors-site.github.io/static/media/fa-v4compatibility.da94ef451f4969af06e6.ttf",
+    "static/media/fa-v4compatibility.woff2": "/doctors-site.github.io/static/media/fa-v4compatibility.ea8f94e1d22e0d35ccd4.woff2",
+    "index.html": "/doctors-site.github.io/index.html",
+    "main.ecbf4215.css.map": "/doctors-site.github.io/static/css/main.ecbf4215.css.map",
+    "main.1abd7b34.js.map": "/doctors-site.github.io/static/js/main.1abd7b34.js.map",
+    "453.5c5cb572.chunk.js.map": "/doctors-site.github.io/static/js/453.5c5cb572.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ecbf4215.css",
+    "static/js/main.1abd7b34.js"
+  ]
+}
