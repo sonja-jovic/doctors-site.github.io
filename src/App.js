@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBaby, faBrain, faParking } from '@fortawesome/free-solid-svg-icons';
+
 import {
   Navbar,
   Container,
@@ -73,10 +76,12 @@ function Home() {
     { title: "Mental Health", iconClass: "fas fa-brain", color: "#5d9cec", path: "/mental-health" },
     { title: "Providers", iconClass: "bi bi-person-badge", color: "#6c8ea6", path: "/providers" },
     { title: "Locations", iconClass: "bi bi-geo-alt", color: "#89a4a6", path: "/locations" },
-    { title: "Pediatrics", iconClass: "bi bi-person-standing-dress", color: "#5c7fa3", path: "/pediatrics" },
+    { title: "Pediatrics", icon: faBaby, color: "#5c7fa3", path: "/pediatrics" },
     { title: "Parking", iconClass: "fas fa-parking", color: "#7ca0a2", path: "/parking" },
     { title: "FAQs", iconClass: "bi bi-question-circle", color: "#68afc0", path: "/faqs" }
   ];
+
+  
 
   return (
     <>
@@ -125,7 +130,7 @@ function Home() {
 
         {/* Bottom content */}
         <div className="mt-auto d-none d-lg-block">
-          <p className="text-dark fw-bold mb-0">
+          <p className="text-dark fw-bold mb-0 lowered-text">
             Specialist & Family Care | Virtual & In-Clinic Visits
           </p>
         </div>
@@ -147,7 +152,11 @@ function Home() {
                   className="info-tile h-100 d-flex flex-column justify-content-center align-items-center"
                   style={{ backgroundColor: tile.color }}
                 >
-                  <i className={`${tile.iconClass} icon`}></i>
+                  {tile.icon ? (
+                    <FontAwesomeIcon icon={tile.icon} className="icon" />
+                  ) : (
+                    <i className={`${tile.iconClass} icon`}></i>
+                  )}
                   <div className="tile-text">{tile.title}</div>
                 </div>
               </Link>

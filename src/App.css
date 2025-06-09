@@ -242,3 +242,8 @@ body, html, #root {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
+
+.lowered-text {
+  margin-top: 6.5rem;
+  font-size: larger;
+}

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Container, Accordion, Card, useAccordionButton, Button } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBaby, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const pediatricsColor = "rgba(92, 127, 163, 0.3)";
 const expandedContentBgColor = "#e5ebec";
@@ -22,10 +24,11 @@ function CustomToggle({ eventKey, callback, isActive }) {
         width: "30px",
       }}
     >
-      <span>{isActive ? "−" : "+"}</span>
+      <FontAwesomeIcon icon={isActive ? faMinus : faPlus} />
     </div>
   );
 }
+
 
 export default function Pediatrics() {
   const navigate = useNavigate();
@@ -124,7 +127,11 @@ export default function Pediatrics() {
           >
             <path ... />
           </svg> */}
-          <i className="bi bi-person-standing-dress" style={{ fontSize: "3.5rem", color: "#5c7fa3", marginRight: "0.75rem" }}></i>
+          <FontAwesomeIcon
+            icon={faBaby}
+            style={{ fontSize: "3.5rem", color: "#5c7fa3", marginRight: "0.75rem" }}
+          />
+
           <h2 className="info" style={{ fontSize: "3.5rem", marginBottom: "0.5rem" }}>
             Pediatrics
           </h2>
