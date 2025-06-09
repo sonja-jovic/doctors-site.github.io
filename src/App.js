@@ -8,7 +8,7 @@ import {
   Nav
 } from "react-bootstrap";
 
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Link, useLocation, useNavigate } from "react-router-dom";
 
 import "./App.css";
 import MentalHealth from "./pages/MentalHealth";
@@ -19,7 +19,7 @@ import Parking from "./pages/Parking";
 import FAQs from "./pages/FAQs";
 import BookAppointment from "./pages/BookAppointment";  // <-- Import here
 import heroImage from './assets/herosection2.jpg';
-import logoImage from './assets/cardiogram.png'; 
+import logoImage from './assets/cardiogram.png';
 
 // Footer component
 function Footer() {
@@ -38,10 +38,10 @@ function Footer() {
       <Container>
         {/* you could remove the image if you want */}
         <div className="mb-3">
-          <img 
-            src={logoImage} 
-            height="25" 
-            alt="Catalyst Health Logo" 
+          <img
+            src={logoImage}
+            height="25"
+            alt="Catalyst Health Logo"
             className="mb-2"
           />
           <div>Catalyst Health</div>
@@ -58,16 +58,28 @@ function Footer() {
 function Home() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const placeholderColor = "#f0f0f0"; // Light placeholder color matching your design
-  
+  const location = useLocation();
+
   useEffect(() => {
     const img = new Image();
     img.src = heroImage;
     img.onload = () => setImageLoaded(true);
-    
+
     if (img.complete) {
       setImageLoaded(true);
     }
-  }, []);
+
+    const queryParams = new URLSearchParams(location.search);
+    if (queryParams.get('scrollTo') === 'services') {
+      // Small delay to ensure everything is loaded
+      setTimeout(() => {
+        window.scrollTo({
+          top: 450,
+          behavior: 'smooth'
+        });
+      }, 500);
+    }
+  }, [location]);
 
   const tiles = [
     { title: "Mental Health", iconClass: "fas fa-brain", color: "#5d9cec", path: "/mental-health" },
@@ -131,14 +143,14 @@ function Home() {
         </div>
       </div>
 
-      <Container className="text-center my-5">
+      <Container className="text-center my-5" id="welcome-section">
         <h5 className="fw-bold fs-3">Your Family's Health Starts Here!</h5>
         <p className="text-muted fs-5">
           Catalyst Medical provides compassionate, accessible healthcare tailored to your needs.
         </p>
       </Container>
 
-      <Container className="my-5">
+      <Container className="my-5" >
         <Row className="g-4 px-5 px-sm-4 px-md-3 px-lg-0" xs={1} md={3}>
           {tiles.map((tile, idx) => (
             <Col key={idx}>
@@ -172,6 +184,37 @@ function ScrollToTop() {
 // Main App
 function App() {
   document.title = "Catalyst Health";
+  const navigate = useNavigate();
+
+  const scrollToServices = (e) => {
+    e.preventDefault();
+    const isHomePage = window.location.pathname === '/' ||
+      window.location.pathname === '/doctors-site.github.io/';
+
+    if (isHomePage) {
+      // Already on home page, just scroll to the section
+      window.scrollTo({
+        top: 450,
+        behavior: 'smooth'
+      });
+    } else {
+      // Use React Router navigation instead of window.location
+      navigate('/?scrollTo=services');
+    }
+  };
+
+  const handleHomeClick = (e) => {
+    const isHomePage = window.location.pathname === '/doctors-site.github.io' ||
+      window.location.pathname === '/doctors-site.github.io/';
+
+    if (isHomePage) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <>
@@ -187,12 +230,12 @@ function App() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto fw-normal">
+              <Nav.Link as={Link} to="/" onClick={handleHomeClick}>Home</Nav.Link>
+              <Nav.Link as={Link} to="/#welcome-section" onClick={scrollToServices}>
+                Explore Services
+              </Nav.Link>
               <Nav.Link as={Link} to="/mental-health">Mental Health</Nav.Link>
-              <Nav.Link as={Link} to="/providers">Providers</Nav.Link>
-              <Nav.Link as={Link} to="/locations">Locations</Nav.Link>
               <Nav.Link as={Link} to="/pediatrics">Pediatrics</Nav.Link>
-              <Nav.Link as={Link} to="/parking">Parking</Nav.Link>
-              <Nav.Link as={Link} to="/faqs">FAQs</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
