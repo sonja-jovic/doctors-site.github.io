@@ -147,7 +147,7 @@ function BookAppointment() {
         
         <div className="appointment-notes text-center">
           <p className="text-danger">Please do not book multiple appointments within the same calendar day.</p>
-          <p className="text-warning">If you have not received a confirmation email, please ensure you check your spam folder</p>
+          <p className="text-black">If you have not received a confirmation email, please ensure you check your spam folder</p>
         </div>
       </Container>
     </div>
