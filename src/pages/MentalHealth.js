@@ -5,12 +5,6 @@ import { useNavigate } from 'react-router-dom';
 const locationsColor = "var(--teal-light)";
 const expandedContentBgColor = "#e5ebec";
 
-// const locationsColor = "var(--teal-primary)"; // Darker, more saturated teal 
-// const expandedContentBgColor = "#f9f9f9"; 
-
-// const locationsColor = "rgba(54, 130, 127, 0.3)"; // Very light teal 
-// const expandedContentBgColor = "#ffffff";
-
 function CustomToggle({ eventKey, callback, isActive }) {
   const decoratedOnClick = useAccordionButton(eventKey, () => {
     if (callback) callback(eventKey);

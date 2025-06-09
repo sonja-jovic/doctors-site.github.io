@@ -220,9 +220,9 @@ body, html, #root {
 }
 
 .pediatrics-btn:hover {
-  background-color: #5c7fa3 !important; 
-  color: white !important;
-  border-color: #5c7fa3 !important;
+  background-color: rgba(92, 127, 163, 0.3) !important; 
+  /* color: white !important;
+  border-color: #5c7fa3 !important; */
 }
 
 .pediatrics-btn-filled {
